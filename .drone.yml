@@ -1,0 +1,10 @@
+pipeline:
+  build:
+    image: docker
+    commands:
+      - docker login -u azuruce -p ${DOCKER_PASSWORD}
+      - ls -al
+      - docker build -t azuruce/docker-drone:latest .
+      - docker push azuruce/docker-drone:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

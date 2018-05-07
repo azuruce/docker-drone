@@ -1,0 +1,9 @@
+pipeline:
+  build:
+    image: docker
+    commands:
+      - pwd
+      - ls -al
+      - docker build -t azuruce/docker-drone:nopush .
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
